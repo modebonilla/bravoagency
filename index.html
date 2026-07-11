@@ -724,13 +724,14 @@
           </div>
 
           <div class="field">
-            <label for="facturacion">Facturación mensual aproximada</label>
+            <label for="facturacion">Facturación mensual aproximada de tu empresa</label>
             <select id="facturacion" name="facturacion" required>
               <option value="">Selecciona un rango</option>
               <option value="menos50">Menos de $50,000 MXN</option>
               <option value="50a100">$50,000 - $100,000 MXN</option>
-              <option value="100a300">$100,000 - $300,000 MXN</option>
-              <option value="mas300">Más de $300,000 MXN</option>
+              <option value="100a250">$100,000 - $250,000 MXN</option>
+              <option value="250a500">$250,000 - $500,000 MXN</option>
+              <option value="mas500">Más de $500,000 MXN</option>
             </select>
           </div>
 
@@ -775,6 +776,18 @@
     <a href="#form" class="btn btn-nav">Agenda tu diagnóstico</a>
   </div>
 </footer>
+
+<iframe name="formspree-iframe" style="display:none"></iframe>
+<form id="formspree-form" action="https://formspree.io/f/mvznlpeq" method="POST" target="formspree-iframe" style="display:none">
+  <input type="text" name="nombre">
+  <input type="text" name="empresa">
+  <input type="text" name="whatsapp">
+  <input type="text" name="facturacion">
+  <input type="text" name="ciudad">
+  <input type="text" name="invest_confirm">
+  <input type="text" name="agendo">
+  <input type="hidden" name="origen" value="Landing Bravo Agencia">
+</form>
 
 <script>
   const revealEls = document.querySelectorAll('.reveal');
@@ -903,6 +916,16 @@
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
       }).catch(()=>{ /* si falla el webhook, no bloqueamos la experiencia del usuario */ });
+
+      const fsForm = document.getElementById('formspree-form');
+      fsForm.nombre.value = data.nombre || '';
+      fsForm.empresa.value = data.empresa || '';
+      fsForm.whatsapp.value = data.whatsapp || '';
+      fsForm.facturacion.value = data.facturacion || '';
+      fsForm.ciudad.value = data.ciudad || '';
+      fsForm.invest_confirm.value = data.invest_confirm || '';
+      fsForm.agendo.value = data.agendo || '';
+      fsForm.submit();
     }
   })();
 </script>
