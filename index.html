@@ -719,7 +719,7 @@
                 <option value="+51" data-flag="🇵🇪">🇵🇪 +51 Perú</option>
                 <option value="+56" data-flag="🇨🇱">🇨🇱 +56 Chile</option>
               </select>
-              <input id="whatsapp" name="whatsapp" type="tel" placeholder="10 dígitos" required>
+              <input id="whatsapp" name="whatsapp" type="tel" inputmode="numeric" maxlength="10" placeholder="10 dígitos" required>
             </div>
           </div>
 
@@ -857,10 +857,19 @@
         return;
       }
 
+      const soloDigitos = whatsapp.value.replace(/\D/g, '');
+      if(soloDigitos.length !== 10){
+        alert('Escribe tu WhatsApp a 10 dígitos, sin espacios ni guiones.');
+        return;
+      }
+      const ladaDigitos = lada.value.replace(/\D/g, '');
+
       leadData = {
         nombre: nombre.value,
         empresa: empresa.value,
-        whatsapp: lada.value + whatsapp.value,
+        negocio: empresa.value,
+        origen: 'Landing Bravo Agencia',
+        whatsapp: ladaDigitos + soloDigitos,
         facturacion: facturacion.options[facturacion.selectedIndex].text,
         ciudad: ciudad.value,
       };
