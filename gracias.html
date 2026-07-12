@@ -93,25 +93,15 @@ src="https://www.facebook.com/tr?id=1363271465911172&ev=PageView&noscript=1"
 
   // ---------------------------------------------------------------
   // PIXEL DE META — EVENTO DE CONVERSIÓN "Lead"
-  // Se dispara una sola vez por envío real (usa localStorage para
-  // evitar que se cuente de nuevo si la persona recarga esta página).
+  // Se dispara siempre que alguien llega a esta página con los datos
+  // correctos (agendado o en_espera). Simple y sin condiciones extra.
   // ---------------------------------------------------------------
   if(estado === 'agendado' || estado === 'en_espera'){
-    const leadFlag = 'bravo_lead_fired_' + estado;
-    let yaSeContó = false;
-    try {
-      yaSeContó = !!localStorage.getItem(leadFlag);
-    } catch(e) {
-      yaSeContó = false;
-    }
-    if(!yaSeContó){
-      fbq('track', 'Lead', {
-        content_name: 'Diagnóstico Estratégico Bravo Agency',
-        content_category: 'Formulario landing',
-        status: estado
-      });
-      try { localStorage.setItem(leadFlag, '1'); } catch(e) { /* si no se puede guardar, no pasa nada grave */ }
-    }
+    fbq('track', 'Lead', {
+      content_name: 'Diagnóstico Estratégico Bravo Agency',
+      content_category: 'Formulario landing',
+      status: estado
+    });
   }
 </script>
 </body>
