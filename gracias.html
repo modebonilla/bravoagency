@@ -98,13 +98,19 @@ src="https://www.facebook.com/tr?id=1363271465911172&ev=PageView&noscript=1"
   // ---------------------------------------------------------------
   if(estado === 'agendado' || estado === 'en_espera'){
     const leadFlag = 'bravo_lead_fired_' + estado;
-    if(!localStorage.getItem(leadFlag)){
+    let yaSeContó = false;
+    try {
+      yaSeContó = !!localStorage.getItem(leadFlag);
+    } catch(e) {
+      yaSeContó = false;
+    }
+    if(!yaSeContó){
       fbq('track', 'Lead', {
         content_name: 'Diagnóstico Estratégico Bravo Agency',
         content_category: 'Formulario landing',
         status: estado
       });
-      localStorage.setItem(leadFlag, '1');
+      try { localStorage.setItem(leadFlag, '1'); } catch(e) { /* si no se puede guardar, no pasa nada grave */ }
     }
   }
 </script>
