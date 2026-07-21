@@ -853,7 +853,7 @@ src="https://www.facebook.com/tr?id=1363271465911172&ev=PageView&noscript=1"
   <input type="text" name="ciudad">
   <input type="text" name="invest_confirm">
   <input type="text" name="agendo">
-  <input type="hidden" name="origen" value="Landing Bravo Agencia">
+  <input type="hidden" name="origen" value="Landing Médicos">
 </form>
 
 <script>
@@ -948,7 +948,7 @@ src="https://www.facebook.com/tr?id=1363271465911172&ev=PageView&noscript=1"
         nombre: nombre.value,
         empresa: empresa.value,
         negocio: empresa.value,
-        origen: 'Landing Bravo Agencia',
+        origen: 'Landing Médicos',
         whatsapp: ladaDigitos + soloDigitos,
         facturacion: facturacion.options[facturacion.selectedIndex].text,
         ciudad: ciudad.value,
@@ -959,21 +959,21 @@ src="https://www.facebook.com/tr?id=1363271465911172&ev=PageView&noscript=1"
       } else {
         leadData.invest_confirm = 'no_aplica';
         sendLead(leadData, true);
-        setTimeout(()=>{ window.location.href = '../gracias.html?estado=agendado'; }, 600);
+        setTimeout(()=>{ window.location.href = '../gracias.html?estado=agendado&origen=medicos'; }, 600);
       }
     });
 
     document.getElementById('gate-yes').addEventListener('click', ()=>{
       leadData.invest_confirm = 'si';
       sendLead(leadData, true);
-      setTimeout(()=>{ window.location.href = '../gracias.html?estado=agendado'; }, 600);
+      setTimeout(()=>{ window.location.href = '../gracias.html?estado=agendado&origen=medicos'; }, 600);
     });
 
     document.getElementById('gate-no').addEventListener('click', ()=>{
       leadData.invest_confirm = 'no';
       sendLead(leadData, false);
       showStep('decline');
-      setTimeout(()=>{ window.location.href = '../gracias.html?estado=en_espera'; }, 3500);
+      setTimeout(()=>{ window.location.href = '../gracias.html?estado=en_espera&origen=medicos'; }, 3500);
     });
 
     function sendLead(data, agendo){
