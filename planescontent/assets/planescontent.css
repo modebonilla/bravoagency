@@ -239,3 +239,17 @@ footer{padding:40px 0;background:var(--black);border-top:1px solid var(--line-da
   .mini-philosophy{grid-template-columns:1fr;}
   .stats-mini-row{gap:28px;}
 }
+
+/* Tipos de contenido (glosario breve) */
+.content-types-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:820px;margin:0 auto;}
+.content-types-grid .item{text-align:center;}
+.content-types-grid .item .ico{width:44px;height:44px;border-radius:50%;background:var(--red-glow);color:var(--red);
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;margin:0 auto 14px;}
+.content-types-grid h4{font-size:15px;margin-bottom:6px;}
+.content-types-grid p{font-size:13.5px;color:var(--gray);font-weight:500;line-height:1.5;}
+
+/* Glosario de tipos de contenido */
+.content-types-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;}
+.content-type-item{border:1px solid var(--line);border-radius:14px;padding:26px 24px;background:#fff;}
+.content-type-item h4{font-size:15.5px;margin-bottom:8px;color:var(--red);}
+.content-type-item p{font-size:14px;color:var(--gray);font-weight:500;line-height:1.55;}
