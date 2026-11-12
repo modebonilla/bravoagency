@@ -2,12 +2,13 @@
 // Escribe aquí el WhatsApp de Bravo (solo números con clave de país, ej. "522281234567").
 // Mientras esté vacío, los botones "Agenda tu cita" llevan al Instagram de la agencia.
 const CONTACTO = {
-  whatsapp: "",
+  whatsapp: "522286146358",
   instagram: "somosbravoagency"
 };
 // =====================================
 document.querySelectorAll("[data-cta]").forEach(a=>{
-  const msg=a.getAttribute("data-cta")||"Hola, quiero agendar una cita con Bravo Agency.";
+  const base=a.getAttribute("data-cta")||"Hola, me gustaría agendar una cita.";
+  const msg=base+" (Origen: "+(document.body.dataset.origen||"Sitio web")+")";
   if(CONTACTO.whatsapp){
     a.href="https://wa.me/"+CONTACTO.whatsapp+"?text="+encodeURIComponent(msg);
   }else{
