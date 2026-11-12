@@ -320,3 +320,6 @@ html{overflow-x:clip}body{overflow-x:clip}
 
 .plac.a.p-orador{left:-4%;bottom:6%}
 @media(max-width:640px){.plac.a.p-orador{left:-6%}}
+
+/* móvil: la plaquita de las manos va debajo, nunca encima */
+@media(max-width:900px){.adan{margin-bottom:84px}.adan>.plac.a.w{left:50%;bottom:-78px;transform:translateX(-50%)}}
