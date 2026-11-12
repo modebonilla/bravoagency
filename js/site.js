@@ -69,3 +69,7 @@ if(fine&&!reduce){const cur=document.createElement("div");cur.className="cur";do
  let x=0,y=0,tx=0,ty=0;addEventListener("pointermove",e=>{tx=e.clientX;ty=e.clientY;cur.classList.add("on")});
  document.addEventListener("pointerover",e=>cur.classList.toggle("big",!!e.target.closest("a,button")));
  (function loop(){x+=(tx-x)*.2;y+=(ty-y)*.2;cur.style.left=x+"px";cur.style.top=y+"px";requestAnimationFrame(loop)})();}
+
+// notificación rotatoria
+document.querySelectorAll("[data-rot]").forEach(el=>{const m=["¡Venta cerrada!","Nuevo cliente","Cita agendada","Pago recibido"];let i=0;
+ if(reduce)return;setInterval(()=>{el.classList.add("out");setTimeout(()=>{i=(i+1)%m.length;el.textContent=m[i];el.classList.remove("out")},260)},2300)});
