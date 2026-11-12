@@ -475,3 +475,12 @@ section{padding:112px 0}
 .ticker{margin:0}
 @media(max-width:900px){section{padding:76px 0}.hero.home h1{font-size:clamp(38px,10.5vw,56px)}.hero .meta{gap:22px}.hero .meta b{font-size:28px}}
 @media(max-width:640px){body::after{opacity:.5}.sec-head{margin-bottom:38px}}
+
+/* v14 lockup Mode Bonilla × Bravo Agency */
+.nav .brand,.lkf,.lkw{display:inline-flex;align-items:center;gap:12px}
+.lk{font-family:Montserrat,sans-serif;font-weight:700;font-size:11px;letter-spacing:.22em;white-space:nowrap;color:inherit;opacity:.85}
+.lk i{font-style:normal;margin-left:.3em;opacity:.7}
+.nav .brand{color:#23225E}.lkf{color:#fff;margin-bottom:14px}.lkw{color:#23225E}
+.lkf img,.lkw img{height:24px}
+@media(max-width:560px){.lk{font-size:9px;letter-spacing:.18em}.nav .brand{gap:8px}}
+.nav .brand,.nav .brand *{text-decoration:none!important;border:0}

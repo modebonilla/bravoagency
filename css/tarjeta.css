@@ -67,3 +67,15 @@
 .tj-bigc{border:1px solid rgba(35,34,94,.2);border-radius:20px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
 .tj-bigc p{font-weight:500}
 @media(min-width:700px){.tj{border:1px solid rgba(35,34,94,.2);border-radius:28px;background:rgba(255,255,255,.28);box-shadow:0 50px 80px -40px rgba(20,19,58,.6)}}
+
+/* v14 lockup Mode Bonilla × Bravo Agency */
+.nav .brand,.lkf,.lkw{display:inline-flex;align-items:center;gap:12px}
+.lk{font-family:Montserrat,sans-serif;font-weight:700;font-size:11px;letter-spacing:.22em;white-space:nowrap;color:inherit;opacity:.85}
+.lk i{font-style:normal;margin-left:.3em;opacity:.7}
+.nav .brand{color:#23225E}.lkf{color:#fff;margin-bottom:14px}.lkw{color:#23225E}
+.lkf img,.lkw img{height:24px}
+@media(max-width:560px){.lk{font-size:9px;letter-spacing:.18em}.nav .brand{gap:8px}}
+.nav .brand,.nav .brand *{text-decoration:none!important;border:0}
+.tj-top .lkw,.tj-top .lkw span,.tj-top .lkw i{background:none!important;border:0!important;padding:0!important;border-radius:0!important;text-transform:none}
+.tj-top .lkw .lk{font-family:Montserrat,sans-serif;font-weight:700;font-size:9px;letter-spacing:.18em;color:#23225E}
+.tj-top .lkw{gap:8px;flex:none}.tj-top .lkw img{height:20px}
