@@ -79,3 +79,7 @@
 .tj-top .lkw,.tj-top .lkw span,.tj-top .lkw i{background:none!important;border:0!important;padding:0!important;border-radius:0!important;text-transform:none}
 .tj-top .lkw .lk{font-family:Montserrat,sans-serif;font-weight:700;font-size:9px;letter-spacing:.18em;color:#23225E}
 .tj-top .lkw{gap:8px;flex:none}.tj-top .lkw img{height:20px}
+
+.tj-top .lkw img{height:26px!important;width:auto}
+.tj-top .lkw{background:none!important;border:0!important;padding:0!important}
+.tj-top .lkw img{height:21px!important}
