@@ -205,7 +205,7 @@ function renderReels(){const tabs=$('#tabs'),box=$('#reels');tabs.innerHTML='';b
   n.querySelector('.del').onclick=()=>{if(D.reels.length===1)return toast('Debe haber al menos un reel');if(confirmDel(i)){D.reels.splice(i,1);D.cur=Math.max(0,D.cur-1);save();renderReels()}};
   box.appendChild(n)});
  if(D.reels.length<6){const a=document.createElement('button');a.className='tab add';a.textContent='+ Agregar reel';a.onclick=()=>{D.reels.push({});D.cur=D.reels.length-1;save();renderReels()};tabs.appendChild(a)}}
-let pend=null;function twice(id,msg){if(pend===id){pend=null;return true}pend=id;toast(msg);setTimeout(()=>{if(pend===id)pend=null},3000);return false}
+let pend=null;function twice(id,msg){if(pend===id){pend=null;return true}pend=id;toast(msg);setTimeout(()=>{if(pend===id)pend=null},6000);return false}
 function confirmDel(i){const r=D.reels[i];return !Object.values(r).some(v=>v&&v.length)||twice('del'+i,'Toca de nuevo "Quitar reel" para confirmar')}
 const L={empresa:'Nombre de la empresa',antiguedad:'Antigüedad',aniversario:'Fecha de aniversario',telefono:'Teléfono',direccion:'Dirección',presentacion:'Presentación',diferenciadores:'Diferenciadores',productos:'Productos o servicios',redes_usuarios:'Usuarios / enlaces',edad:'Rango de edad',segmento_otro:'Otro segmento',zona:'Zona o ciudad',publico_notas:'Notas del público'};
 const RL={producto:'Producto o servicio a destacar',diferencia:'¿Qué lo diferencia?',publico:'Público',problemas:'¿Qué problemas resuelve?',destacar:'Qué destacar',cta_otro:'Detalle del llamado a la acción',comentarios:'Comentarios adicionales'};
@@ -220,7 +220,7 @@ function word(){let h=`<html><head><meta charset="utf-8"><style>body{font-family
  sections().forEach(([hh,rows])=>{h+=`<h2>${hh}</h2><table width="100%" cellspacing="0">`+rows.map(([k,v])=>`<tr><td class="k">${k}</td><td>${esc(v)}</td></tr>`).join('')+'</table>'});h+='</body></html>';
  const b=new Blob(['﻿',h],{type:'application/msword'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Onboarding - '+((D.f.empresa||'cliente').replace(/[\\/:*?"<>|]/g,''))+'.doc';a.click();toast('Documento descargado')}
 async function copiar(){try{await navigator.clipboard.writeText(texto());toast('Texto copiado: pégalo en WhatsApp o en un documento')}catch(e){const ta=document.createElement('textarea');ta.value=texto();document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast('Texto copiado')}}
-function nuevo(){if(!twice('nuevo','Descarga o copia antes lo del cliente actual. Toca de nuevo "Nuevo cliente" para borrar'))return;D={f:{},g:{},reels:[{},{},{}],cur:0};save();bindGeneral();renderReels();scrollTo(0,0)}
+function nuevo(){let ok;try{ok=window.confirm('¿Borrar todo para empezar un cliente nuevo?\n\nAsegúrate de haber descargado el Word o el PDF de este cliente.')}catch(e){ok=twice('nuevo','Toca otra vez "Nuevo cliente" para borrar')}if(!ok)return;D={f:{},g:{},reels:[{},{},{}],cur:0};save();bindGeneral();renderReels();scrollTo(0,0)}
 function toast(m){const e=$('#toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
 load();bindGeneral();renderReels();
 </script>
