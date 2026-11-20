@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Onboarding Reels de Venta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--v:#34225E;--v2:#4D3A78;--lb:#6B4BB5;--lm:#D6FE5D;--l1:#F4F4FE;--l2:#E2E3F8;--lv1:#C3C5F9;--lv2:#9B9EEC;--card:rgba(255,255,255,.9);--bg:linear-gradient(140deg,#C3C5F9,#9B9EEC)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Montserrat,sans-serif;color:var(--v);background:var(--bg);background-attachment:fixed;min-height:100vh;-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(52,34,94,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(52,34,94,.05) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:28px 24px 120px}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-family:Oswald;font-weight:700;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+.brand small{font-family:Montserrat;font-weight:700;font-size:11px;letter-spacing:.2em;color:var(--lb);margin-right:6px}
+.save{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.6);padding:8px 14px;border-radius:30px}
+.save i{width:9px;height:9px;border-radius:50%;background:#2F8A57;box-shadow:0 0 0 4px rgba(47,138,87,.18)}
+.save.busy i{background:#E0A100}
+h1{font-family:Oswald;font-weight:600;text-transform:uppercase;font-size:clamp(38px,6vw,64px);line-height:1;margin-top:34px}
+.hl{background:linear-gradient(transparent 60%,var(--lm) 60%,var(--lm) 92%,transparent 92%);padding:0 6px}
+.it{font-family:Oswald;font-style:italic;font-weight:500;text-transform:none;color:var(--lb)}
+.lab{font-weight:700;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--lb)}
+.lead{font-size:16px;font-weight:500;color:var(--v2);margin-top:10px;max-width:640px;line-height:1.5}
+nav.steps{position:sticky;top:10px;z-index:5;display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 8px;padding:8px;background:rgba(255,255,255,.55);backdrop-filter:blur(10px);border-radius:40px;box-shadow:0 18px 30px -24px rgba(52,34,94,.6)}
+nav.steps a{flex:1;min-width:120px;text-align:center;text-decoration:none;color:var(--v);font-family:Oswald;font-weight:600;text-transform:uppercase;font-size:15px;padding:10px 14px;border-radius:30px}
+nav.steps a b{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--v);color:var(--lm);font-size:13px;align-items:center;justify-content:center;margin-right:8px}
+nav.steps a:hover{background:#fff}
+section{margin-top:30px;scroll-margin-top:90px}
+.sh{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.sh .n{width:46px;height:46px;border-radius:50%;background:var(--v);color:var(--lm);font-family:Oswald;font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center;flex:none}
+.sh h2{font-family:Oswald;font-weight:600;text-transform:uppercase;font-size:32px;line-height:1}
+.card{background:var(--card);border-radius:24px;padding:24px;box-shadow:0 28px 50px -34px rgba(52,34,94,.55)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.full{grid-column:1/-1}
+label.f{display:block}
+label.f>span{display:block;font-family:Oswald;font-weight:600;text-transform:uppercase;font-size:15px;letter-spacing:.02em;margin-bottom:6px}
+label.f>span em{font-family:Montserrat;font-style:normal;font-weight:500;text-transform:none;font-size:12px;color:var(--lb);margin-left:6px;letter-spacing:0}
+input[type=text],input[type=tel],input[type=date],textarea{width:100%;font:500 16px Montserrat;color:var(--v);background:#F3F2FE;border:2px solid transparent;border-radius:14px;padding:12px 14px;outline:none;transition:.15s}
+input:focus,textarea:focus{border-color:var(--lb);background:#fff}
+textarea{min-height:92px;resize:vertical;line-height:1.45}
+.hint{font-size:12.5px;color:var(--v2);background:rgba(214,254,93,.45);border-radius:12px;padding:10px 12px;margin-bottom:8px;line-height:1.45}
+.hint b{color:var(--v)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-flex;align-items:center;gap:6px;cursor:pointer;user-select:none;font-family:Oswald;font-weight:600;text-transform:uppercase;font-size:15px;padding:9px 16px;border-radius:30px;background:#F3F2FE;border:2px solid transparent;transition:.15s}
+.chip input:checked+span{background:var(--lm);border-color:var(--v)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tab{font-family:Oswald;font-weight:600;text-transform:uppercase;font-size:16px;padding:10px 18px;border-radius:30px;border:0;cursor:pointer;background:rgba(255,255,255,.55);color:var(--v)}
+.tab.on{background:var(--v);color:var(--lm)}
+.tab.add{background:var(--lm)}
+.reel{display:none}.reel.on{display:block}
+.rhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.rhead h3{font-family:Oswald;font-weight:600;text-transform:uppercase;font-size:26px}
+.del{border:0;background:transparent;color:#B04A3C;font:700 12px Montserrat;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:10;background:rgba(52,34,94,.94);backdrop-filter:blur(8px)}
+.bar .in{max-width:1100px;margin:0 auto;padding:12px 24px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.bar .l{color:#DCDAF7;font-size:12.5px;font-weight:600}
+.btn{border:0;cursor:pointer;font:800 13px Montserrat;letter-spacing:.12em;text-transform:uppercase;padding:12px 18px;border-radius:30px;background:var(--lm);color:var(--v)}
+.btn.g{background:rgba(255,255,255,.14);color:#fff}
+.toast{position:fixed;left:50%;bottom:86px;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--lm);color:var(--v);font-weight:700;padding:12px 20px;border-radius:30px;transition:.25s;z-index:20;box-shadow:0 18px 30px -16px rgba(52,34,94,.7)}
+.toast.on{opacity:1;transform:translateX(-50%)}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.sh h2{font-size:26px}}
+@media print{.bar,nav.steps,.save,.tabs,.del,.toast{display:none!important}body{background:#fff}.reel{display:block!important;margin-top:18px}.card{box-shadow:none;border:1px solid #ddd}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand"><small>Mode Bonilla ×</small>Bravo Agency</div>
+  <div class="save" id="save"><i></i><span>Guardado en este equipo</span></div>
+</header>
+<div class="lab" style="margin-top:30px">Sesión de onboarding · Reels de venta</div>
+<h1>Conozcamos <span class="it">tu</span> <span class="hl">negocio</span></h1>
+<p class="lead">Con esta información construimos la estrategia y los guiones de tus reels de venta.</p>
+
+<nav class="steps">
+  <a href="#s1"><b>1</b>Tu empresa</a>
+  <a href="#s2"><b>2</b>Tu público</a>
+  <a href="#s3"><b>3</b>Tus reels</a>
+</nav>
+
+<!-- 1 EMPRESA -->
+<section id="s1">
+  <div class="sh"><div class="n">1</div><h2>Tu empresa</h2></div>
+  <div class="card grid">
+    <label class="f"><span>Nombre de la empresa</span><input type="text" data-k="empresa"></label>
+    <label class="f"><span>Antigüedad <em>¿cuántos años tiene?</em></span><input type="text" data-k="antiguedad"></label>
+    <label class="f"><span>Fecha de aniversario</span><input type="text" data-k="aniversario" placeholder="Ej. 15 de marzo"></label>
+    <label class="f"><span>Teléfono</span><input type="tel" data-k="telefono"></label>
+    <label class="f full"><span>Dirección</span><input type="text" data-k="direccion"></label>
+    <label class="f full"><span>Presentación</span>
+      <div class="hint"><b>Ejemplo:</b> "Soy Mode Bonilla, director de Bravo Agency. Tengo 10 años de experiencia haciendo marketing y he trabajado con más de 400 empresas, ayudándolas a aumentar sus ventas con estrategias en redes sociales."<br>Quién eres · qué haces · tu experiencia · a quién ayudas y cómo.</div>
+      <textarea data-k="presentacion"></textarea></label>
+    <label class="f full"><span>¿Qué los hace diferentes? <em>sus diferenciadores</em></span><textarea data-k="diferenciadores"></textarea></label>
+    <label class="f full"><span>Productos o servicios</span>
+      <div class="hint">Si son muchos, pídele que comparta su <b>catálogo o carta</b> por el grupo de WhatsApp.</div>
+      <textarea data-k="productos"></textarea></label>
+    <div class="f full"><label class="f"><span>Redes sociales actuales</span></label>
+      <div class="chips" data-g="redes">
+        <label class="chip"><input type="checkbox" value="Facebook"><span>Facebook</span></label>
+        <label class="chip"><input type="checkbox" value="Instagram"><span>Instagram</span></label>
+        <label class="chip"><input type="checkbox" value="TikTok"><span>TikTok</span></label>
+        <label class="chip"><input type="checkbox" value="YouTube"><span>YouTube</span></label>
+        <label class="chip"><input type="checkbox" value="WhatsApp Business"><span>WhatsApp Business</span></label>
+        <label class="chip"><input type="checkbox" value="Sitio web"><span>Sitio web</span></label>
+        <label class="chip"><input type="checkbox" value="Sin presencia aún"><span>Sin presencia aún</span></label>
+      </div>
+      <input type="text" data-k="redes_usuarios" placeholder="Usuarios o enlaces (ej. @minegocio)" style="margin-top:10px">
+    </div>
+  </div>
+</section>
+
+<!-- 2 PÚBLICO -->
+<section id="s2">
+  <div class="sh"><div class="n">2</div><h2>Tu público objetivo</h2></div>
+  <div class="card grid">
+    <div class="f"><label class="f"><span>Género</span></label>
+      <div class="chips" data-g="genero" data-single>
+        <label class="chip"><input type="checkbox" value="Mujeres"><span>Mujeres</span></label>
+        <label class="chip"><input type="checkbox" value="Hombres"><span>Hombres</span></label>
+        <label class="chip"><input type="checkbox" value="Ambos"><span>Ambos</span></label>
+      </div></div>
+    <label class="f"><span>Rango de edad</span><input type="text" data-k="edad" placeholder="Ej. 28 a 55 años"></label>
+    <div class="f full"><label class="f"><span>Segmento o nicho</span></label>
+      <div class="chips" data-g="segmento">
+        <label class="chip"><input type="checkbox" value="Empresarios"><span>Empresarios</span></label>
+        <label class="chip"><input type="checkbox" value="Profesionistas"><span>Profesionistas</span></label>
+        <label class="chip"><input type="checkbox" value="Gobierno"><span>Gobierno</span></label>
+        <label class="chip"><input type="checkbox" value="Maestros"><span>Maestros</span></label>
+        <label class="chip"><input type="checkbox" value="Asociaciones"><span>Asociaciones</span></label>
+        <label class="chip"><input type="checkbox" value="Familias"><span>Familias</span></label>
+        <label class="chip"><input type="checkbox" value="Estudiantes"><span>Estudiantes</span></label>
+      </div>
+      <input type="text" data-k="segmento_otro" placeholder="Otro segmento o detalle" style="margin-top:10px"></div>
+    <label class="f full"><span>Zona o ciudad</span><input type="text" data-k="zona" placeholder="Ej. Xalapa y alrededores"></label>
+    <label class="f full"><span>Notas del público <em>intereses, nivel socioeconómico, hábitos…</em></span><textarea data-k="publico_notas"></textarea></label>
+  </div>
+</section>
+
+<!-- 3 REELS -->
+<section id="s3">
+  <div class="sh"><div class="n">3</div><h2>Tus reels</h2></div>
+  <div class="tabs" id="tabs"></div>
+  <div id="reels"></div>
+</section>
+</div>
+
+<div class="bar"><div class="in">
+  <span class="l">Se guarda solo en este navegador mientras escribes, aunque se caiga el internet.</span>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button class="btn g" onclick="nuevo()">Nuevo cliente</button>
+    <button class="btn g" onclick="copiar()">Copiar texto</button>
+    <button class="btn g" onclick="try{window.print()}catch(e){toast('Usa Descargar Word o Copiar texto')}">PDF</button>
+    <button class="btn" onclick="word()">Descargar Word</button>
+  </div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<template id="tplReel">
+<div class="card reel">
+  <div class="rhead"><h3>Reel <span class="rn"></span></h3><button class="del" type="button">Quitar reel</button></div>
+  <div class="grid">
+    <label class="f full"><span>Producto o servicio a destacar</span><input type="text" data-r="producto"></label>
+    <label class="f full"><span>¿Qué lo diferencia? <em>de la competencia y de sus otros productos</em></span><textarea data-r="diferencia"></textarea></label>
+    <div class="f full"><label class="f"><span>¿A qué público va dirigido?</span></label>
+      <div class="chips" data-rg="publico_tipo" data-single>
+        <label class="chip"><input type="checkbox" value="El mismo público general"><span>El mismo público general</span></label>
+        <label class="chip"><input type="checkbox" value="Otro público"><span>Otro público</span></label>
+      </div>
+      <input type="text" data-r="publico" placeholder="Describe el público de este reel" style="margin-top:10px"></div>
+    <label class="f full"><span>¿Qué problemas resuelve?</span><textarea data-r="problemas"></textarea></label>
+    <label class="f full"><span>Todo lo que podamos destacar <em>beneficios, promociones, garantías, datos…</em></span><textarea data-r="destacar"></textarea></label>
+    <div class="f full"><label class="f"><span>Llamado a la acción</span></label>
+      <div class="chips" data-rg="cta">
+        <label class="chip"><input type="checkbox" value="Agenda"><span>Agenda</span></label>
+        <label class="chip"><input type="checkbox" value="Visítanos"><span>Visítanos</span></label>
+        <label class="chip"><input type="checkbox" value="Escríbenos"><span>Escríbenos</span></label>
+        <label class="chip"><input type="checkbox" value="Cotiza"><span>Cotiza</span></label>
+        <label class="chip"><input type="checkbox" value="Compra"><span>Compra</span></label>
+        <label class="chip"><input type="checkbox" value="Llámanos"><span>Llámanos</span></label>
+      </div>
+      <input type="text" data-r="cta_otro" placeholder="Otro o detalle (ej. Escríbenos por WhatsApp para apartar tu lugar)" style="margin-top:10px"></div>
+  </div>
+</div>
+</template>
+
+<script>
+const KEY='bravo_onboarding_reels_v1';
+let D={f:{},g:{},reels:[{},{},{}],cur:0};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+function load(){try{const s=localStorage.getItem(KEY);if(s)D=JSON.parse(s)}catch(e){}if(!D.reels||!D.reels.length)D.reels=[{}];}
+let t;function save(){const el=$('#save');el.classList.add('busy');el.querySelector('span').textContent='Guardando…';clearTimeout(t);t=setTimeout(()=>{try{localStorage.setItem(KEY,JSON.stringify(D));el.querySelector('span').textContent='Guardado en este equipo'}catch(e){el.querySelector('span').textContent='No se pudo guardar'}el.classList.remove('busy')},250)}
+function bindChips(box,get,set){const single=box.hasAttribute('data-single');box.querySelectorAll('input').forEach(i=>{i.checked=(get()||[]).includes(i.value);i.onchange=()=>{if(single&&i.checked)box.querySelectorAll('input').forEach(o=>{if(o!==i)o.checked=false});set(box.querySelectorAll('input:checked').length?[...box.querySelectorAll('input:checked')].map(x=>x.value):[]);save()}})}
+function bindGeneral(){$$('[data-k]').forEach(el=>{el.value=D.f[el.dataset.k]||'';el.oninput=()=>{D.f[el.dataset.k]=el.value;save()}});$$('[data-g]').forEach(b=>bindChips(b,()=>D.g[b.dataset.g],v=>D.g[b.dataset.g]=v))}
+function renderReels(){const tabs=$('#tabs'),box=$('#reels');tabs.innerHTML='';box.innerHTML='';if(D.cur>=D.reels.length)D.cur=0;
+ D.reels.forEach((r,i)=>{const b=document.createElement('button');b.className='tab'+(i===D.cur?' on':'');b.textContent='Reel '+(i+1)+(r.producto?' · '+r.producto.slice(0,18):'');b.onclick=()=>{D.cur=i;save();renderReels()};tabs.appendChild(b);
+  const n=$('#tplReel').content.firstElementChild.cloneNode(true);n.querySelector('.rn').textContent=i+1;if(i===D.cur)n.classList.add('on');
+  n.querySelectorAll('[data-r]').forEach(el=>{el.value=r[el.dataset.r]||'';el.oninput=()=>{r[el.dataset.r]=el.value;save();if(el.dataset.r==='producto')tabs.children[i].textContent='Reel '+(i+1)+(el.value?' · '+el.value.slice(0,18):'')}});
+  n.querySelectorAll('[data-rg]').forEach(bx=>bindChips(bx,()=>r[bx.dataset.rg],v=>r[bx.dataset.rg]=v));
+  n.querySelector('.del').onclick=()=>{if(D.reels.length===1)return toast('Debe haber al menos un reel');if(confirmDel(i)){D.reels.splice(i,1);D.cur=Math.max(0,D.cur-1);save();renderReels()}};
+  box.appendChild(n)});
+ if(D.reels.length<6){const a=document.createElement('button');a.className='tab add';a.textContent='+ Agregar reel';a.onclick=()=>{D.reels.push({});D.cur=D.reels.length-1;save();renderReels()};tabs.appendChild(a)}}
+let pend=null;function twice(id,msg){if(pend===id){pend=null;return true}pend=id;toast(msg);setTimeout(()=>{if(pend===id)pend=null},3000);return false}
+function confirmDel(i){const r=D.reels[i];return !Object.values(r).some(v=>v&&v.length)||twice('del'+i,'Toca de nuevo "Quitar reel" para confirmar')}
+const L={empresa:'Nombre de la empresa',antiguedad:'Antigüedad',aniversario:'Fecha de aniversario',telefono:'Teléfono',direccion:'Dirección',presentacion:'Presentación',diferenciadores:'Diferenciadores',productos:'Productos o servicios',redes_usuarios:'Usuarios / enlaces',edad:'Rango de edad',segmento_otro:'Otro segmento',zona:'Zona o ciudad',publico_notas:'Notas del público'};
+const RL={producto:'Producto o servicio a destacar',diferencia:'¿Qué lo diferencia?',publico:'Público',problemas:'¿Qué problemas resuelve?',destacar:'Qué destacar',cta_otro:'Detalle del llamado a la acción'};
+function sections(){const f=D.f,g=D.g,j=a=>(a||[]).join(', ');
+ const S=[['TU EMPRESA',[['Nombre de la empresa',f.empresa],['Antigüedad',f.antiguedad],['Fecha de aniversario',f.aniversario],['Teléfono',f.telefono],['Dirección',f.direccion],['Presentación',f.presentacion],['Diferenciadores',f.diferenciadores],['Productos o servicios',f.productos],['Redes sociales',j(g.redes)],['Usuarios / enlaces',f.redes_usuarios]]],
+ ['TU PÚBLICO OBJETIVO',[['Género',j(g.genero)],['Rango de edad',f.edad],['Segmento o nicho',[j(g.segmento),f.segmento_otro].filter(Boolean).join(' · ')],['Zona o ciudad',f.zona],['Notas',f.publico_notas]]]];
+ D.reels.forEach((r,i)=>S.push(['REEL '+(i+1),[['Producto o servicio',r.producto],['¿Qué lo diferencia?',r.diferencia],['Público',[j(r.publico_tipo),r.publico].filter(Boolean).join(' · ')],['Problemas que resuelve',r.problemas],['Qué destacar',r.destacar],['Llamado a la acción',[j(r.cta),r.cta_otro].filter(Boolean).join(' · ')]]]));
+ return S}
+function texto(){let t='ONBOARDING REELS DE VENTA · BRAVO AGENCY\n'+(D.f.empresa||'')+'\n';sections().forEach(([h,rows])=>{t+='\n== '+h+' ==\n';rows.forEach(([k,v])=>{t+=k+': '+(v||'—')+'\n'})});return t}
+function esc(s){return (s||'—').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n/g,'<br>')}
+function word(){let h=`<html><head><meta charset="utf-8"><style>body{font-family:Arial;color:#34225E}h1{font-size:22pt}h2{background:#D6FE5D;padding:4pt 8pt;font-size:14pt;margin-top:18pt}td{padding:6pt;vertical-align:top;border-bottom:1px solid #ddd;font-size:11pt}td.k{width:32%;font-weight:bold;color:#6B4BB5}</style></head><body><p style="color:#6B4BB5;font-weight:bold;letter-spacing:2pt">BRAVO AGENCY · ONBOARDING REELS DE VENTA</p><h1>${esc(D.f.empresa||'Cliente')}</h1><p>Fecha: ${new Date().toLocaleDateString('es-MX')}</p>`;
+ sections().forEach(([hh,rows])=>{h+=`<h2>${hh}</h2><table width="100%" cellspacing="0">`+rows.map(([k,v])=>`<tr><td class="k">${k}</td><td>${esc(v)}</td></tr>`).join('')+'</table>'});h+='</body></html>';
+ const b=new Blob(['﻿',h],{type:'application/msword'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Onboarding - '+((D.f.empresa||'cliente').replace(/[\\/:*?"<>|]/g,''))+'.doc';a.click();toast('Documento descargado')}
+async function copiar(){try{await navigator.clipboard.writeText(texto());toast('Texto copiado: pégalo en WhatsApp o en un documento')}catch(e){const ta=document.createElement('textarea');ta.value=texto();document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast('Texto copiado')}}
+function nuevo(){if(!twice('nuevo','Descarga o copia antes lo del cliente actual. Toca de nuevo "Nuevo cliente" para borrar'))return;D={f:{},g:{},reels:[{},{},{}],cur:0};save();bindGeneral();renderReels();scrollTo(0,0)}
+function toast(m){const e=$('#toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+load();bindGeneral();renderReels();
+</script>
+</body>
+</html>
