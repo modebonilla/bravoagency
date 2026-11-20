@@ -184,6 +184,7 @@ textarea{min-height:92px;resize:vertical;line-height:1.45}
         <label class="chip"><input type="checkbox" value="Llámanos"><span>Llámanos</span></label>
       </div>
       <input type="text" data-r="cta_otro" placeholder="Otro o detalle (ej. Escríbenos por WhatsApp para apartar tu lugar)" style="margin-top:10px"></div>
+    <label class="f full"><span>Comentarios adicionales <em>importantes, cláusulas, condiciones, restricciones, lo que no se debe decir…</em></span><textarea data-r="comentarios" placeholder="Ej. Promoción válida hasta el 30 de noviembre · Aplican restricciones · No mencionar precios"></textarea></label>
   </div>
 </div>
 </template>
@@ -207,11 +208,11 @@ function renderReels(){const tabs=$('#tabs'),box=$('#reels');tabs.innerHTML='';b
 let pend=null;function twice(id,msg){if(pend===id){pend=null;return true}pend=id;toast(msg);setTimeout(()=>{if(pend===id)pend=null},3000);return false}
 function confirmDel(i){const r=D.reels[i];return !Object.values(r).some(v=>v&&v.length)||twice('del'+i,'Toca de nuevo "Quitar reel" para confirmar')}
 const L={empresa:'Nombre de la empresa',antiguedad:'Antigüedad',aniversario:'Fecha de aniversario',telefono:'Teléfono',direccion:'Dirección',presentacion:'Presentación',diferenciadores:'Diferenciadores',productos:'Productos o servicios',redes_usuarios:'Usuarios / enlaces',edad:'Rango de edad',segmento_otro:'Otro segmento',zona:'Zona o ciudad',publico_notas:'Notas del público'};
-const RL={producto:'Producto o servicio a destacar',diferencia:'¿Qué lo diferencia?',publico:'Público',problemas:'¿Qué problemas resuelve?',destacar:'Qué destacar',cta_otro:'Detalle del llamado a la acción'};
+const RL={producto:'Producto o servicio a destacar',diferencia:'¿Qué lo diferencia?',publico:'Público',problemas:'¿Qué problemas resuelve?',destacar:'Qué destacar',cta_otro:'Detalle del llamado a la acción',comentarios:'Comentarios adicionales'};
 function sections(){const f=D.f,g=D.g,j=a=>(a||[]).join(', ');
  const S=[['TU EMPRESA',[['Nombre de la empresa',f.empresa],['Antigüedad',f.antiguedad],['Fecha de aniversario',f.aniversario],['Teléfono',f.telefono],['Dirección',f.direccion],['Presentación',f.presentacion],['Diferenciadores',f.diferenciadores],['Productos o servicios',f.productos],['Redes sociales',j(g.redes)],['Usuarios / enlaces',f.redes_usuarios]]],
  ['TU PÚBLICO OBJETIVO',[['Género',j(g.genero)],['Rango de edad',f.edad],['Segmento o nicho',[j(g.segmento),f.segmento_otro].filter(Boolean).join(' · ')],['Zona o ciudad',f.zona],['Notas',f.publico_notas]]]];
- D.reels.forEach((r,i)=>S.push(['REEL '+(i+1),[['Producto o servicio',r.producto],['¿Qué lo diferencia?',r.diferencia],['Público',[j(r.publico_tipo),r.publico].filter(Boolean).join(' · ')],['Problemas que resuelve',r.problemas],['Qué destacar',r.destacar],['Llamado a la acción',[j(r.cta),r.cta_otro].filter(Boolean).join(' · ')]]]));
+ D.reels.forEach((r,i)=>S.push(['REEL '+(i+1),[['Producto o servicio',r.producto],['¿Qué lo diferencia?',r.diferencia],['Público',[j(r.publico_tipo),r.publico].filter(Boolean).join(' · ')],['Problemas que resuelve',r.problemas],['Qué destacar',r.destacar],['Llamado a la acción',[j(r.cta),r.cta_otro].filter(Boolean).join(' · ')],['Comentarios adicionales',r.comentarios]]]));
  return S}
 function texto(){let t='ONBOARDING REELS DE VENTA · BRAVO AGENCY\n'+(D.f.empresa||'')+'\n';sections().forEach(([h,rows])=>{t+='\n== '+h+' ==\n';rows.forEach(([k,v])=>{t+=k+': '+(v||'—')+'\n'})});return t}
 function esc(s){return (s||'—').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n/g,'<br>')}
